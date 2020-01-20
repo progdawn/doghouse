@@ -1,0 +1,20 @@
+/*--- Navbar ---*/
+.nav-item a:hover {
+    text-decoration: none;
+    box-shadow: 0px 4px 0px #F7C331;
+}
+
+/*--- Gallery ---*/
+.container {
+    background: #f9f9f9;
+}
+.flex-column {
+    max-width: 260px;
+}
+img {
+    margin: 5px;
+}
+.scale {
+    transform: scaleY(1.05);
+    padding-top: 5px; 
+}
