@@ -1,11 +1,9 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="css/main.css" rel="stylesheet">
         <title>Doghouse</title>
@@ -30,40 +28,28 @@
 
         <section>
             <div class="container-fluid">
-                <div class="d-flex flex-row flex-wrap justify-content-center">
-                    <div class="d-flex flex-column">
-                        <img src="dog-images/01.jpg" class="img-fluid">                        
-                        <img src="dog-images/02.jpg" class="img-fluid">
-                        <img src="dog-images/09.jpg" class="img-fluid">                        
-                        <img src="dog-images/10.jpg" class="img-fluid">
-                    </div>
-                    
-                    <div class="d-flex flex-column">
-                        <img src="dog-images/03.jpg" class="img-fluid">                        
-                        <img src="dog-images/04.jpg" class="img-fluid scale">
-                        <img src="dog-images/11.jpg" class="img-fluid">                        
-                        <img src="dog-images/12.jpg" class="img-fluid scale">
-                    </div>
-                    
-                    <div class="d-flex flex-column">
-                        <img src="dog-images/05.jpg" class="img-fluid scale mb-2">
-                        <img src="dog-images/06.jpg"  class="img-fluid">
-                        <img src="dog-images/13.jpg" class="img-fluid scale mb-2">
-                        <img src="dog-images/14.jpg"  class="img-fluid">
-                    </div>
-                    
-                    <div class="d-flex flex-column">
-                        <img src="dog-images/07.jpg" class="img-fluid m-1 p-1">
-                        <img src="dog-images/08.jpg" class="img-fluid image m-1 p-1">
-                        <img src="dog-images/15.jpg" class="img-fluid m-1 p-1">
-                        <img src="dog-images/16.jpg" class="img-fluid image m-1 p-1">
-                    </div>
-                </div>
+                <?php
+                    $dirname = "dog-images/";
+                    $images = glob($dirname."*.jpg");
+                    $imageCounter = 0;
+
+                    foreach($images as $image) {
+                        if($imageCounter % 3 === 0) {
+                            echo '<div class="row justify-content-md-center">';
+                        }
+                        echo '<div class="d-flex flex-column"><img src="'.$image.'" class="img-fluid m-1 p-1"></div>';
+                        if($imageCounter % 3 === 2){
+                            echo '</div>';
+                        }
+                        $imageCounter++;
+                        if($image === end($images)){
+                            echo '</div>';
+                        }
+                    }
+                ?>
             </div>
         </section>
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
