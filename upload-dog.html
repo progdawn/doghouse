@@ -16,11 +16,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto mx-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Dogs<span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="upload-dog.html">Upload</a>
+                        <a class="nav-link" href="index.php">Dogs</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Upload<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
@@ -28,25 +28,26 @@
 
         <section>
             <div class="container-fluid">
-                <?php
-                    $dirname = "dog-images/";
-                    $images = glob($dirname."*.jpg");
-                    $imageCounter = 0;
+                <div class="row align-items-center">
+                    <div class="col-md-6 order-1">
+                        <div class="p-5">
+                            <h2 class="display-4">Submit a dog!</h2>
+                            <p>We're always looking for more dogs to fill the Doghouse. Use the form to submit a picture, and we'll invite it on in.</p>   
+                        </div>
+                    </div>
 
-                    foreach($images as $image) {
-                        if($imageCounter % 3 === 0) {
-                            echo '<div class="row justify-content-md-center">';
-                        }
-                        echo '<div class="d-flex flex-column"><img src="'.$image.'" class="img-fluid m-1 p-1"></div>';
-                        if($imageCounter % 3 === 2){
-                            echo '</div>';
-                        }
-                        $imageCounter++;
-                        if($image === end($images)){
-                            echo '</div>';
-                        }
-                    }
-                ?>
+                    <div class="col-md-6 order-2">
+                        <div class="p-5">
+                            <form class="container" action="upload.php" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    Select image to upload:
+                                    <input type="file" name="fileToUpload" id="fileToUpload">
+                                    <input type="submit" value="Upload Image" name="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
