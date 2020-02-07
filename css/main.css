@@ -4,17 +4,49 @@
     box-shadow: 0px 4px 0px #F7C331;
 }
 
-/*--- Gallery ---*/
-.container {
-    background: #f9f9f9;
-}
-.flex-column {
-    max-width: 260px;
-}
 img {
-    margin: 5px;
-}
-.scale {
-    transform: scaleY(1.05);
-    padding-top: 5px; 
-}
+    max-width: 100%;
+    vertical-align: middle;
+  }
+
+.masonry {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    /* Your container needs a fixed height, and it 
+     * needs to be taller than your tallest column. */
+    height: 665px;
+    
+    /* Optional */
+    padding: 20px;
+    width: 80%;
+    margin: 40px auto;
+    counter-reset: bricks;
+  }
+  
+  .brick {
+    width: 32%;
+    /* Optional */
+    position: relative;
+    margin-bottom: 2%;
+    border-radius: 3px;
+    color: #fff;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+
+  
+  /* Re-order items into 3 rows */
+  .brick:nth-child(3n+1) { order: 1; }
+  .brick:nth-child(3n+2) { order: 2; }
+  .brick:nth-child(3n)   { order: 3; }
+  
+  /* Force new columns */
+  .masonry::before,
+  .masonry::after {
+    content: "";
+    flex-basis: 100%;
+    width: 0;
+    order: 2;
+  }
