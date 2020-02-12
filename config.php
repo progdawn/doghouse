@@ -1,18 +1,16 @@
 <?php
-    function OpenCon()
-     {
-        $dbhost = "localhost";
-        $dbuser = "root";
-        $dbpass = "";
-        $db = "doghouse";
-        $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
-        
-        return $conn;
-     }
-     
-    function CloseCon($conn)
-     {
-        $conn -> close();
-     }
-       
+   /* Database credentials. Assuming you are running MySQL
+   server with default setting (user 'root' with no password) */
+   define('DB_SERVER', 'localhost:3308');
+   define('DB_USERNAME', 'root');
+   define('DB_PASSWORD', '');
+   define('DB_NAME', 'doghouse');
+   
+   /* Attempt to connect to MySQL database */
+   $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+   
+   // Check connection
+   if($link === false){
+      die("ERROR: Could not connect. " . mysqli_connect_error());
+   }
 ?>
