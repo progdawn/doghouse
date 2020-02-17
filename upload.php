@@ -1,4 +1,15 @@
 <?php
+include ("connect.php");
+
+    // Initialize the session
+    session_start();
+    
+    // Check if the user is logged in, if not then redirect him to login page
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+        header("location: login.php");
+        exit;
+    }
+
     $target_dir = "dog-images/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
@@ -36,9 +47,22 @@
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+            $sql = "INSERT INTO images (name,user) VALUES (?, ?)";
+
+            if($stmt = mysqli_prepare($link, $sql)){
+                mysqli_stmt_bind_param($stmt, "ss", $param_name, $param_user);
+            
+                // Set parameters
+                $param_name = $target_file;
+                $param_user = $_SESSION["username"]; 
+                if(mysqli_stmt_execute($stmt)){
+                    echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                }
+            }
+            mysqli_stmt_close($stmt);
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
+        mysqli_close($link);
     }
 ?>
