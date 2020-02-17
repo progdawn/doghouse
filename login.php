@@ -4,7 +4,7 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
+    header("location: account.php");
     exit;
 }
  
@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: account.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -108,18 +108,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Dogs</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="upload-dog.php">Upload</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Login<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.php">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
-                    </li>
+                    <?php
+                        if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                            echo '<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
+                        } else {
+                            echo '<li class="nav-item"><a class="nav-link" href="upload-dog.php">Upload</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="account.php">Account</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+                        }
+                    ?>
                 </ul>
             </div>
         </nav>

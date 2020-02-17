@@ -25,26 +25,16 @@ session_start();
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Dogs<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="upload-dog.php">Upload</a>
-                    </li>
                     <?php
                         if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-                            echo '<li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
-                        </li>';
-                            echo '<li class="nav-item">
-                            <a class="nav-link" href="register.php">Register</a>
-                        </li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
                         } else {
-                            echo '<li class="nav-item">
-                            <a class="nav-link" href="welcome.php">Account</a>
-                        </li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="upload-dog.php">Upload</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="account.php">Account</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
                         }
                     ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
-                    </li>
                 </ul>
             </div>
         </nav>

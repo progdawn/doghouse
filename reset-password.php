@@ -90,18 +90,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Dogs</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="upload-dog.php">Upload</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.php">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
-                    </li>
+                    <?php
+                        if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                            echo '<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
+                        } else {
+                            echo '<li class="nav-item"><a class="nav-link" href="upload-dog.php">Upload</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="account.php">Account</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+                        }
+                    ?>
                 </ul>
             </div>
         </nav>
@@ -122,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Submit">
-                    <a class="btn btn-link" href="welcome.php">Cancel</a>
+                    <a class="btn btn-link" href="account.php">Cancel</a>
                 </div>
             </form>
         </div>    
