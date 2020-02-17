@@ -20,7 +20,7 @@
                         <a class="nav-link" href="#">Dogs<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="upload-dog.html">Upload</a>
+                        <a class="nav-link" href="upload-dog.php">Upload</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">Login</a>
@@ -38,8 +38,8 @@
 
         <div class="masonry">
             <?php
-                $dirname = "dog-images/";
-                $images = glob($dirname."*.jpg");
+                $dirname = "dog-images/*";
+                $images = glob($dirname);
                 $imageCounter = 0;
 
                 foreach($images as $image) {

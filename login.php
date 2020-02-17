@@ -109,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <a class="nav-link" href="index.php">Dogs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="upload-dog.html">Upload</a>
+                        <a class="nav-link" href="upload-dog.php">Upload</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Login<span class="sr-only">(current)</span></a>
