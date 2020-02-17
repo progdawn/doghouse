@@ -1,3 +1,9 @@
+<?php
+// Initialize the session
+session_start();
+ 
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -22,12 +28,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="upload-dog.php">Upload</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.php">Register</a>
-                    </li>
+                    <?php
+                        if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                            echo '<li class="nav-item">
+                            <a class="nav-link" href="login.php">Login</a>
+                        </li>';
+                            echo '<li class="nav-item">
+                            <a class="nav-link" href="register.php">Register</a>
+                        </li>';
+                        } else {
+                            echo '<li class="nav-item">
+                            <a class="nav-link" href="welcome.php">Account</a>
+                        </li>';
+                        }
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
                     </li>
