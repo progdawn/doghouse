@@ -87,7 +87,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto mx-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="index.php">Dogs</a>
                     </li>
                     <li class="nav-item">
