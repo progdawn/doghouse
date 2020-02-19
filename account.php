@@ -57,6 +57,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
         <section class="gallery-block grid-gallery">
             <div class="container">
+                <h2>Your Images</h2>
                 <div class="row">
                     <?php
                         include ("connect.php");
@@ -72,7 +73,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                 $result = $stmt->get_result();
                                 while($row = $result->fetch_array(MYSQLI_NUM)){
                                     foreach($row as $r)
-                                    echo '<div class="col-md-6 col-lg-4 item"><img class="img-fluid image scale-on-hover" src="'.$r.'"></div>';
+                                        echo '<div class="col-md-6 col-lg-4 item"><img class="img-fluid image scale-on-hover" src="'.$r.'"></div>';
                                 }
                             }
                             mysqli_stmt_close($stmt);
