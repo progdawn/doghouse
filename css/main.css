@@ -4,20 +4,21 @@
     box-shadow: 0px 4px 0px #F7C331;
 }
 
+/*--- Index Gallery ---*/
 .gallery-block.grid-gallery{
   padding-bottom: 60px;
   padding-top: 60px;
 }
 
 .gallery-block.grid-gallery .heading{
-    margin-bottom: 50px;
-    text-align: center;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
 .gallery-block.grid-gallery .heading h2{
-    font-weight: bold;
-    font-size: 1.4rem;
-    text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-transform: uppercase;
 }
 
 .gallery-block.grid-gallery a:hover{
@@ -34,9 +35,10 @@
 }
 
 @media (min-width: 576px) {
-
   .gallery-block.grid-gallery .scale-on-hover:hover{
     transform: scale(1.05);
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15) !important;
   }
 }
+
+/*--- Misc ---*/
