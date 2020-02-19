@@ -56,7 +56,7 @@ include ("connect.php");
                 $param_name = $target_file;
                 $param_user = $_SESSION["username"]; 
                 if(mysqli_stmt_execute($stmt)){
-                    echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                    header("location: account.php");
                 }
             }
             mysqli_stmt_close($stmt);
