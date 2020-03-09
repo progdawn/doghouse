@@ -8,14 +8,20 @@
     <div class="container">
         <div class="row">
             <?php
-                $dirname = "dog-images/*";
-                $images = glob($dirname);
-                $imageCounter = 0;
+                include ("connect.php");
 
-                foreach($images as $image) {
-                    echo '<div class="col-md-6 col-lg-4 item"><a data-toggle="modal" data-target="#image-modal" href="#image-modal" data-id="'.$image.'" class="openImageDialog"><img class="img-fluid image scale-on-hover" src="'.$image.'"></a></div>';
-                    $imageCounter++;
+                $sql = "SELECT * FROM images";
+
+                if($stmt = mysqli_prepare($link, $sql)){
+                    if(mysqli_stmt_execute($stmt)){
+                        $result = $stmt->get_result();
+                        while($row = $result->fetch_array(MYSQLI_NUM)){
+                            echo '<div class="col-md-6 col-lg-4 item"><a data-toggle="modal" data-target="#image-modal" href="#image-modal" data-name="'.$row[1].'" class="openImageDialog"><img class="img-fluid image scale-on-hover" src="'.$row[1].'"></a></div>';
+                        }
+                    }
+                    mysqli_stmt_close($stmt);
                 }
+                mysqli_close($link);
             ?>
         </div>
     </div>
