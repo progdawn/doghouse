@@ -24,10 +24,14 @@
                 <div class="p-5">
                     <form class="container" action="upload.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            Select image to upload:
-                            <input type="file" name="fileToUpload" id="fileToUpload">
-                            <input type="submit" value="Upload Image" name="submit">
+                            <label for="image-title">Image title</label>
+                            <input type="text" class="form-control" id="image-title" name="image-title">
                         </div>
+                        <div class="form-group">
+                            <label for="image-upload">Select image to upload:</label>
+                            <input type="file" class="form-control-file" name="fileToUpload" id="image-upload">
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                     </form>
                 </div>
             </div>

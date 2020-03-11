@@ -29,7 +29,7 @@
             <?php
                 include ("connect.php");
 
-                $sql = "SELECT name FROM images WHERE user = ?";
+                $sql = "SELECT filename FROM images WHERE user = ?";
 
                 if($stmt = mysqli_prepare($link, $sql)){
                     mysqli_stmt_bind_param($stmt, "s", $param_user);
