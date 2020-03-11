@@ -17,7 +17,7 @@
                         $result = $stmt->get_result();
                         while($row = mysqli_fetch_assoc($result)){
                             echo '<div class="col-md-6 col-lg-4 item">
-                                <a data-toggle="modal" data-target="#image-modal" href="#image-modal" data-filename="'.$row["filename"].'" data-title="'.$row["title"].'" data-user="'.$row["user"].'" data-description="'.$row["description"].'" class="openImageDialog">
+                                <a data-toggle="modal" data-target="#image-modal" href="#image-modal" data-id="'.$row["id"].'" data-filename="'.$row["filename"].'" data-title="'.$row["title"].'" data-user="'.$row["user"].'" data-description="'.$row["description"].'" class="openImageDialog">
                                     <img class="img-fluid image scale-on-hover" src="'.$row["filename"].'">
                                 </a>
                             </div>';
@@ -40,6 +40,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <p id="modal-user">User</p>
+                                                <a class="btn btn-primary" id="modal-id" href="#" role="button">View page</a>
                                             </div>
                                         </div>
                                     </div>

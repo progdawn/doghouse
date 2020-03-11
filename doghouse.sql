@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Mar 11, 2020 at 05:40 PM
+-- Generation Time: Mar 11, 2020 at 09:18 PM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -55,8 +55,18 @@ CREATE TABLE IF NOT EXISTS `images` (
   `user` varchar(200) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `comments_count` int(11) NOT NULL DEFAULT '0',
+  `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `title`, `filename`, `user`, `created_at`, `comments_count`, `description`) VALUES
+(1, 'Mikey Man', 'dog-images/4.png', 'dawn', '2020-03-11 18:26:29', 0, 'Mikey man Mikey man Mikey man Mikey man Mikey man Mikey man Mikey man Mikey man Mikey man '),
+(2, 'Mikey 6', 'dog-images/6.png', 'dawn', '2020-03-11 19:19:43', 0, 'Cute dog Cute dog Cute dog Cute dog Cute dog Cute dog Cute dog '),
+(3, 'Smiley', 'dog-images/10.png', 'dawn', '2020-03-11 21:11:46', 0, 'He got a cool smile');
 
 -- --------------------------------------------------------
 
@@ -72,7 +82,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
+(1, 'dawn', '$2y$10$7JrbZJPBnioWG0kGEPqBXu2WMJ3U4zo5TimzpvHaoSVnvKH/juUaK', '2020-03-11 12:58:22');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
