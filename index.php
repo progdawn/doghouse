@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <?php
-                include ("connect.php");
+                include ("includes/connect.php");
 
                 $sql = "SELECT * FROM images";
 
@@ -17,7 +17,7 @@
                         $result = $stmt->get_result();
                         while($row = mysqli_fetch_assoc($result)){
                             echo '<div class="col-md-6 col-lg-4 item">
-                                <a data-toggle="modal" data-target="#image-modal" href="#image-modal" data-filename="'.$row["filename"].'" data-title="'.$row["title"].'" data-user="'.$row["user"].'"class="openImageDialog">
+                                <a data-toggle="modal" data-target="#image-modal" href="#image-modal" data-filename="'.$row["filename"].'" data-title="'.$row["title"].'" data-user="'.$row["user"].'" data-description="'.$row["description"].'" class="openImageDialog">
                                     <img class="img-fluid image scale-on-hover" src="'.$row["filename"].'">
                                 </a>
                             </div>';
@@ -36,6 +36,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <img id="modal-image" class="img-fluid image" src="" alt="">
+                                                <p id="modal-description">Description</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <p id="modal-user">User</p>

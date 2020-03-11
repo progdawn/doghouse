@@ -28,7 +28,11 @@
                             <input type="text" class="form-control" id="image-title" name="image-title">
                         </div>
                         <div class="form-group">
-                            <label for="image-upload">Select image to upload:</label>
+                            <label for="image-description">Image description</label>
+                            <textarea name="image-description" class="form-control" id="image-description" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="image-upload">Select image to upload</label>
                             <input type="file" class="form-control-file" name="fileToUpload" id="image-upload">
                         </div>
                         <button type="submit" class="btn btn-primary" name="submit">Submit</button>

@@ -1,7 +1,7 @@
 <?php
     include 'includes/header.php';
     // Include config file
-    require_once "connect.php";
+    require_once "includes/connect.php";
     
     // Define variables and initialize with empty values
     $username = $password = $confirm_password = "";

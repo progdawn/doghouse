@@ -1,5 +1,5 @@
 <?php
-include ("connect.php");
+include ("includes/connect.php");
 
     // Initialize the session
     session_start();
@@ -11,6 +11,7 @@ include ("connect.php");
     }
 
     $title = $_POST["image-title"];
+    $description = $_POST["image-description"];
     $target_dir = "dog-images/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
@@ -48,15 +49,16 @@ include ("connect.php");
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            $sql = "INSERT INTO images (title,filename,user) VALUES (?, ?, ?)";
+            $sql = "INSERT INTO images (title,filename,user,description) VALUES (?, ?, ?, ?)";
 
             if($stmt = mysqli_prepare($link, $sql)){
-                mysqli_stmt_bind_param($stmt, "sss", $param_title, $param_filename, $param_user);
+                mysqli_stmt_bind_param($stmt, "ssss", $param_title, $param_filename, $param_user, $param_description);
             
                 // Set parameters
                 $param_title = $title;
                 $param_filename = $target_file;
                 $param_user = $_SESSION["username"];
+                $param_description = $description;
                 if(mysqli_stmt_execute($stmt)){
                     header("location: account.php");
                 }

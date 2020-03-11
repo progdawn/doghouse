@@ -27,7 +27,7 @@
         <h2>Your Images</h2>
         <div class="row">
             <?php
-                include ("connect.php");
+                include ("includes/connect.php");
 
                 $sql = "SELECT filename FROM images WHERE user = ?";
 
