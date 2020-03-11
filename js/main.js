@@ -1,15 +1,4 @@
 $(document).on("click", ".openImageDialog", function () {
-    console.log('Ok');
-});
-
-$(document).on("click", ".openImageDialog", function () {
-    var imageId = $(this).data('filename');
-    var imageTitle = $(this).data('title');
-    var imageUser = $(this).data('user');
-    var modal = $(this);
-});
-
-$(document).on("click", ".openImageDialog", function () {
     var imageId = $(this).data('filename');
     var imageTitle = $(this).data('title');
     var imageUser = $(this).data('user');
