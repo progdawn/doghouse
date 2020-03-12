@@ -23,8 +23,8 @@
                     while($row = mysqli_fetch_assoc($result)){
                             echo '<img class="img-fluid image" name="selected-image" id="selected-image" src="'.$row["filename"].'">
                             <h2 id="image-title" name="image-title">'.$row["title"].'</h2>
-                            <p id="image-user" name="image-user">'.$row["user"].'</p>
-                            <p id="image-date" name="image-date">'.$row["created_at"].'</p>
+                            <p id="image-user" name="image-user">Uploaded by '.$row["user"].'</p>
+                            <p id="image-date" name="image-date">Uploaded at '.$row["created_at"].'</p>
                             <p id="image-description" name="image-description">'.$row["description"].'</p>';
                     }
                 }
